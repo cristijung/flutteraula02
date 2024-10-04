@@ -12,7 +12,7 @@ class TaskInherited extends InheritedWidget {
     Task('Aprender Dart', 'assets/images/dart.png', 2),
     Task('Aprender Kotlin', 'assets/images/kotlin.png', 5),
     Task('Aprender React', 'assets/images/react.png', 4),
-    Task('Aprender Python', 'assets/images/flutter.png', 1),
+    Task('Aprender Python', 'assets/images/python.png', 1),
   ];
 
   void newTask(String name, String photo, int difficulty) {

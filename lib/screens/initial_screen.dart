@@ -31,7 +31,9 @@ class _InitialScreenState extends State<InitialScreen> {
             ),
           );
         },
-        child: const Icon(Icons.add),  // ícone trocado pelo add
+        child: const Icon(Icons.add, size:35, color: Colors.white),
+        backgroundColor: Colors.indigo,
+        elevation: 4, // ícone trocado pelo add
       ),
     );
   }
