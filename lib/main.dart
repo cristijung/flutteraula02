@@ -6,6 +6,7 @@ void main() {
   runApp(const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const FormScreen(), //aqui vai a tela que a gente vai criar
+      home: const InitialScreen(), //aqui vai a tela que a gente vai criar
     );
   }
 }
