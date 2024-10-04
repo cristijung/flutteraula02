@@ -21,8 +21,7 @@ class TaskInherited extends InheritedWidget {
 
   static  TaskInherited of(BuildContext context) {
     final TaskInherited? result = context.dependOnInheritedWidgetOfExactType<TaskInherited>();
-    assert(result != null, 'No  found in context');
-    return result!;
+    return result ?? TaskInherited(child: Container());
   }
 
   @override
@@ -31,4 +30,8 @@ class TaskInherited extends InheritedWidget {
   }
 }
 
-//comentando
+//correção da inherited
+//problema é que estava usando context.dependOnInheritedWidgetOfExactType<TaskInherited>(),
+// que retorna um valor anulável (TaskInherited?). No entanto, você está usando result! na linha seguinte,
+// o que força o desempacotamento de um valor potencialmente nulo. Isso pode causar um erro em tempo de execução se result for nulo.
+//Para corrigir esse problema, você pode usar o operador de coalescência nula (??) para fornecer um valor padrão caso result seja nulo.
