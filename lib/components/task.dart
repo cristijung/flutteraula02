@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutteraula02/components/difficulty.dart';
+import 'package:flutteraula02/data/task_dao.dart';
 
 class Task extends StatefulWidget {
   final String nome;
@@ -66,11 +67,6 @@ class _State extends State<Task> {
                                 widget.foto,
                                 fit: BoxFit.cover,
                               ),
-                        //comentário de identificação de ajuste
-                        //de carregamento de widget
-                        //Image.asset(
-                        //widget.foto,
-                        //fit: BoxFit.cover,
                       ),
                     ),
                     Column(
@@ -95,23 +91,27 @@ class _State extends State<Task> {
                       height: 52,
                       width: 52,
                       child: ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              nivel++;
-                            });
-                            // print(nivel);
-                          },
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: const [
-                              Icon(Icons.arrow_drop_up),
-                              Text(
-                                'UP',
-                                style: TextStyle(fontSize: 12),
-                              )
-                            ],
-                          )),
+                        onPressed: () {
+                          TaskDao().delete(widget.nome); //função de exclusão
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.indigo,
+                          foregroundColor: Colors.white,
+                          padding: const EdgeInsets.all(12),
+                          textStyle: const TextStyle(fontSize: 16),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: const [
+                            Icon(Icons.delete),
+                            Text(
+                              'Excluir',
+                              style: TextStyle(fontSize: 10),
+                            ),
+                          ],
+                        ),
+                      ),
                     )
                   ],
                 ),
