@@ -90,6 +90,7 @@ class _State extends State<Task> {
                     SizedBox(
                       height: 52,
                       width: 52,
+                      //btn foi trocado
                       child: ElevatedButton(
                         onPressed: () {
                           TaskDao().delete(widget.nome); //função de exclusão
@@ -107,7 +108,7 @@ class _State extends State<Task> {
                             Icon(Icons.delete),
                             Text(
                               'Excluir',
-                              style: TextStyle(fontSize: 10),
+                              style: TextStyle(fontSize: 8),
                             ),
                           ],
                         ),
