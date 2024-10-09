@@ -1,3 +1,4 @@
+//Modelo de dados
 //classe Cat para dados
 //para representar os dados que a Cats API retorna
 
@@ -18,6 +19,9 @@ class Cat {
     this.imageUrl,
   });
 
+  //construtor factory: não precisa criar uma nova instância
+  //toda vez q ele é chamado
+  //assíncrono e extraindo os valores dos atributos
   factory Cat.fromJson(Map<String, dynamic> json) {
     return Cat(
       id: json['id'],

@@ -1,6 +1,7 @@
-import 'dart:convert';
+//tela de requisição para API
+import 'dart:convert'; //decodificar a resposta para JSON da API
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as http; //definir um apelido para referência
 import 'package:flutteraula02/components/cats.dart';
 
 class ApiScreen extends StatefulWidget {
@@ -19,6 +20,7 @@ class _ApiScreenState extends State<ApiScreen> {
     super.initState();
     _fetchCats();
   }
+  //requisição para a API
 
   Future<void> _fetchCats() async {
     setState(() {
