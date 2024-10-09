@@ -49,6 +49,10 @@ class _ApiScreenState extends State<ApiScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cats API'),
+        backgroundColor: Colors.blue.shade700, // Azul escuro
+        foregroundColor: Colors.white, // Textos e ícones em branco
+        elevation: 2, // Sombra suave
+        centerTitle: true, // Centraliza o título
       ),
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
