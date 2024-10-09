@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutteraula02/data/task_inherited.dart';
-import 'package:flutteraula02/screens/initial_screen.dart';
+import 'package:flutteraula02/screens/home_screen.dart';
+//import 'package:flutteraula02/screens/initial_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: TaskInherited(child: const InitialScreen()),  // --- importada a inherited e ajustado a navegação aqui
+      home: TaskInherited(child: const HomeScreen()),  // --- importada a inherited e ajustado a navegação aqui
     );
   }
 }
