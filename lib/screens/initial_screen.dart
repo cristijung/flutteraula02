@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutteraula02/data/task_dao.dart';
 import 'package:flutteraula02/screens/form_screen.dart';
-import 'package:flutteraula02/screens/api_screen.dart'; // Importe a ApiScreen
+import 'package:flutteraula02/screens/api_screen.dart';
 
 import '../components/task.dart';
 
@@ -33,7 +33,7 @@ class _InitialScreenState extends State<InitialScreen> {
             ),
             IconButton(
               onPressed: () {
-                setState(() {}); // Atualiza a tela ao pressionar o botão de refresh
+                setState(() {}); //atualiza a tela ao pressionar o botão de refresh
               },
               icon: const Icon(Icons.refresh, color: Colors.white),
             ),
@@ -123,16 +123,16 @@ class _InitialScreenState extends State<InitialScreen> {
             backgroundColor: Colors.indigo,
             elevation: 4,
           ),
-          const SizedBox(height: 16), // Espaçamento entre os botões
+          const SizedBox(height: 16),
           FloatingActionButton(
             onPressed: () {
-              // Navega para a ApiScreen
+              //navega para a ApiScreen
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const ApiScreen()),
               );
             },
-            child: const Icon(Icons.pets, size: 35, color: Colors.white), // Ícone de gato
+            child: const Icon(Icons.pets, size: 35, color: Colors.white),
             backgroundColor: Colors.indigo,
             elevation: 4,
           ),
