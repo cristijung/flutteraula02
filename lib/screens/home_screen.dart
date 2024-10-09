@@ -26,11 +26,13 @@ class HomeScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
+
             },
             icon: const Icon(Icons.search, color: Colors.white),
           ),
           IconButton(
             onPressed: () {
+
             },
             icon: const Icon(Icons.more_vert, color: Colors.white),
           ),
@@ -40,24 +42,60 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => TaskInherited(child: const InitialScreen())),
-                );
-              },
-              child: const Text('Tarefas'),
+            Card(
+              elevation: 4,
+              child: IntrinsicWidth(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Image.network(
+                      'https://cdn-icons-png.flaticon.com/512/6742/6742656.png',
+                      height: 150,
+                      width: 150,
+                      fit: BoxFit.cover,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => TaskInherited(
+                                  child: const InitialScreen())),
+                        );
+                      },
+                      child: const Text('Tarefas'),
+                    ),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ApiScreen()),
-                );
-              },
-              child: const Text('Ver gatos'),
+            Card(
+              elevation: 4,
+              child: IntrinsicWidth(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Image.network(
+                      'https://www.maxpetfood.com.br/wp-content/uploads/2023/02/image-170.png',
+                      height: 150,
+                      width: 150,
+                      fit: BoxFit.cover,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const ApiScreen()),
+                        );
+                      },
+                      child: const Text('Ver gatos'),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
