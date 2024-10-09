@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutteraula02/data/task_dao.dart';
 import 'package:flutteraula02/screens/form_screen.dart';
-
+import 'package:flutteraula02/screens/api_screen.dart';
 
 import '../components/task.dart';
 
@@ -33,34 +33,29 @@ class _InitialScreenState extends State<InitialScreen> {
             ),
             IconButton(
               onPressed: () {
+                setState(() {}); //atualiza a tela ao pressionar o botão de refresh
               },
               icon: const Icon(Icons.refresh, color: Colors.white),
             ),
           ],
         ),
       ),
-      //começando a conexão com o bd no body, a partir do FutureBuilding
       body: Padding(
         padding: const EdgeInsets.only(top: 8, bottom: 70),
-        //future pega os dados e building ... constroi
         child: FutureBuilder<List<Task>>(
-            future: TaskDao().findAll(), //buscando o DAO e o método
+            future: TaskDao().findAll(),
             builder: (context, snapshot) {
               List<Task>? items = snapshot.data;
               switch (snapshot.connectionState) {
-                //switch com snapchat.connectionState é a variável utilizada para comparar, conferir, switch(snapshot;connectionState)
-              //nenhuma conexão
                 case ConnectionState.none:
                   return Center(
                     child: Column(
                       children: const [
                         CircularProgressIndicator(),
-                        Text(
-                            'Carregando'),
+                        Text('Carregando'),
                       ],
                     ),
                   );
-                //aguardando conexão
                 case ConnectionState.waiting:
                   return Center(
                     child: Column(
@@ -70,7 +65,6 @@ class _InitialScreenState extends State<InitialScreen> {
                       ],
                     ),
                   );
-                  //conexão ativa
                 case ConnectionState.active:
                   return Center(
                     child: Column(
@@ -80,7 +74,6 @@ class _InitialScreenState extends State<InitialScreen> {
                       ],
                     ),
                   );
-                  //conexão feita
                 case ConnectionState.done:
                   if (snapshot.hasData && items != null) {
                     if (items.isNotEmpty) {
@@ -112,24 +105,38 @@ class _InitialScreenState extends State<InitialScreen> {
               return const Text('Erro desconhecido');
             }),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (contextNew) => FormScreen(
-                taskContext: context,
-              ),
-            ),
-            //add o then para dizer q a tela precisa ser reconstruída
-            //atualizando o estado da tela inicial
-          ).then((value) => setState(() {
-            print('Recarregando a tela inicial');
-          }));
-        },
-        child: const Icon(Icons.add, size:35, color: Colors.white),
-        backgroundColor: Colors.indigo,
-        elevation: 4, // ícone trocado pelo add
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (contextNew) => FormScreen(
+                    taskContext: context,
+                  ),
+                ),
+              ).then((value) => setState(() {}));
+            },
+            child: const Icon(Icons.add, size: 35, color: Colors.white),
+            backgroundColor: Colors.indigo,
+            elevation: 4,
+          ),
+          const SizedBox(height: 16),
+          FloatingActionButton(
+            onPressed: () {
+              //navega para a ApiScreen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ApiScreen()),
+              );
+            },
+            child: const Icon(Icons.pets, size: 35, color: Colors.white),
+            backgroundColor: Colors.indigo,
+            elevation: 4,
+          ),
+        ],
       ),
     );
   }
